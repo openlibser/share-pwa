@@ -53,7 +53,7 @@
       logText("URL shared: " + parsedUrl.searchParams.get("url"));
 
 
-      let url = `https://ytbdnd.herokuapp.com/dnd?ytburl=${parsedUrl.searchParams.get("url")}`;
+      let url = `https://ytbdnd.herokuapp.com/dnd?ytburl=${parsedUrl.searchParams.get("text")}`;
       let downloadData = await fetch(url).then(r => r.json());
       console.log('downloadData', downloadData);
       download('aaa.mp4', downloadData.url);
