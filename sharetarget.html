@@ -1,10 +1,7 @@
-<!-- This work is licensed under the W3C Software and Document License
-     (http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
-  -->
 <html lang="en">
 <head>
   <link rel="manifest" href="manifest.json">
-  <title>Web Share Target Test App</title>
+  <title>YtbDnd</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#111111" />
@@ -58,6 +55,19 @@
       });
     }
 
+    function download(filename, href) {
+      var element = document.createElement('a');
+      element.setAttribute('href', href);
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+
     function logText(message, isError) {
       if (isError)
         console.error(message);
@@ -75,6 +85,8 @@
       logText("Title shared: " + parsedUrl.searchParams.get("title"));
       logText("Text shared: " + parsedUrl.searchParams.get("text"));
       logText("URL shared: " + parsedUrl.searchParams.get("url"));
+
+      download('aaa.mp4', parsedUrl.searchParams.get("url"));
       // We still have the old "url_template" member in the manifest, which is
       // how WST was previously specced and implemented in Chrome. If the user
       // agent uses that method, the "oldapi" parameter will be set.

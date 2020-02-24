@@ -1,6 +1,6 @@
 {
-  "name": "Web Share Target Test App",
-  "short_name": "Target Test",
+  "name": "YtbDnd",
+  "short_name": "YtbDnd",
   "start_url": "sharetarget.html",
   "display": "standalone",
   "share_target": {
